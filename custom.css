@@ -1,0 +1,70 @@
+ /* @theme custom */
+
+@import 'default';
+
+    section header {
+        top: 30px;
+        left: 70px; 
+    }
+    section {
+        color: #424345;
+        font-size: 24px;
+        align-content: start;
+        justify-content: flex-start;
+        padding: 70px 70px 40px; }
+    section h1 {
+        color: #424345;
+        margin: 0 0 20px;
+        text-align: left; }
+    /* タイトルページ専用。本文の section / h1 には適用しない。 */
+    section.title {
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
+    section.title h1 {
+        font-size: 48px;
+        line-height: 1.4;
+        margin: 0px 36px 0px;
+        text-align: center;
+    }
+    section.title p {
+        font-size: 28px;
+        margin: 36px 36px 0;
+        text-align: left
+    }
+
+    .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .columns > div {
+            min-width: 0;
+        }
+
+    section.bottom-message > blockquote:last-of-type {
+        position: absolute;
+        left: 50%;
+        bottom: 42px;
+        transform: translateX(-50%);
+
+        box-sizing: border-box;
+        width: 75%;
+        margin: 0;
+        padding: 10px 24px;
+
+        border: 2px solid #24527a;
+        border-radius: 6px;
+        background: #f7fbff;
+        color: #183b56;
+
+        font-size: 30px;
+        font-weight: bold;
+        font-style: normal;
+        text-align: center;
+    }
+
+    section.bottom-message > blockquote:last-of-type p {
+        margin: 0;
+    }
