@@ -142,20 +142,21 @@ section.content-image-left {
     padding-left: calc(100% - var(--content-width));
 }
 
-/* 画像併用時は本文領域の中央下部に配置する。
- * 例: <!-- _class: bottom-message content-image-right content-60 -->
+/* bottom-message-in-content を付けると本文領域の中央下部に配置する。
+ * 例: <!-- _class: bottom-message content-image-right bottom-message-in-content content-60 -->
+ * 付けない場合はスライド全体の中央下部に配置する。
  * 幅は本文領域の75%。content-* の指定にも追従する。
  */
-section.bottom-message.content-image-right > blockquote:last-of-type,
-section.bottom-message.content-image-left > blockquote:last-of-type {
+section.bottom-message.bottom-message-in-content.content-image-right > blockquote:last-of-type,
+section.bottom-message.bottom-message-in-content.content-image-left > blockquote:last-of-type {
     width: calc(var(--content-width) * 0.75);
 }
 
-section.bottom-message.content-image-right > blockquote:last-of-type {
+section.bottom-message.bottom-message-in-content.content-image-right > blockquote:last-of-type {
     left: calc(var(--content-width) / 2);
 }
 
-section.bottom-message.content-image-left > blockquote:last-of-type {
+section.bottom-message.bottom-message-in-content.content-image-left > blockquote:last-of-type {
     left: calc(100% - var(--content-width) / 2);
 }
 
