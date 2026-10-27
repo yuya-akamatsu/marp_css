@@ -364,6 +364,29 @@ small {
     line-height: var(--line-height-normal);
 }
 
+/* 右上：ページ番号の直下にヘッダーを配置。 */
+section header {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    bottom: auto;
+    left: auto;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-note);
+    line-height: 24px;
+    text-align: right;
+    color: var(--gray-lightest);
+    z-index: 1;
+}
+
+section header * {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+}
+
 section footer {
         /* top: 30px; */
         right: 30px;
@@ -390,7 +413,8 @@ section {
         padding: 30px 60px 0 60px;
     }
 
-    >h1:first-child:not(.no-header > h1):not(.title > h1) {
+    /* header 要素が先に挿入されても、最初の h1 に適用する。 */
+    >h1:first-of-type:not(.no-header > h1):not(.title > h1) {
         position: absolute;
         width: 100%;
         top: 0;
@@ -416,11 +440,16 @@ section {
 
     &::after {
         position: absolute;
-        top: 0px;
+        top: 12px;
         right: 30px;
-        height: 80px;
+        bottom: auto;
+        left: auto;
+        height: 24px;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        text-align: right;
+        line-height: 24px;
         padding: 0;
         font-size: var(--font-size-caption);
         color: var(--gray-lightest);
@@ -430,26 +459,25 @@ section {
 
     &.title {
         display: flex;
-        align-content: center;
-        justify-content: center;
+        align-content: flex-start;
+        justify-content: flex-start;
         flex-direction: column;
         align-items: stretch;
-        text-align: center;
+        text-align: left;
         background-color: var(--bg-default);
         padding: 70px 70px 40px;
-
 
         h1 {
             font-size: 48px;
             line-height: 1.4;
-            margin: 0 36px;
-            text-align: center;
+            margin: 0;
+            text-align: left;
             position: static;
         }
 
         p {
             font-size: 28px;
-            margin: 36px 36px 0;
+            margin: 36px 0 0;
             text-align: left;
         }
 
@@ -457,6 +485,19 @@ section {
             display: none;
         }
 
+        header,
+        footer {
+            left: 70px;
+            right: auto;
+            text-align: left;
+        }
+
+        &::after {
+            left: 70px;
+            right: auto;
+            justify-content: flex-start;
+            text-align: left;
+        }
     }
 
     &.section {
