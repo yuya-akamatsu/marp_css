@@ -36,13 +36,13 @@
     --black: #000000;
 
     /* 背景カラー */
-    --bg-default: #f8f8f8;
+    --bg-default: #f9f9f9;
 
     /* 標準背景色（白） */
-    --bg-accent: #f8f8f8;
+    --bg-accent: #f9f9f9;
 
     /* アクセント背景色 */
-    --bg-accent-code: #f8f8f8;
+    --bg-accent-code: #f9f9f9;
 
     /* 注釈 */
     --border-color: #D9D9D9;
@@ -149,17 +149,17 @@ h2 {
     line-height: var(--line-height-normal);
     font-weight: 600;
     margin-top: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     padding-bottom: 0;
 }
 
 h3 {
-    font-size: var(--font-size-body);
+    font-size: 26px;
     color: var(--gray-medium);
     line-height: var(--line-height-normal);
     font-weight: 600;
     margin-top: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     padding-bottom: 0;
 }
 
@@ -364,29 +364,6 @@ small {
     line-height: var(--line-height-normal);
 }
 
-/* 右上：ページ番号の直下にヘッダーを配置。 */
-section header {
-    position: absolute;
-    top: 40px;
-    right: 30px;
-    bottom: auto;
-    left: auto;
-    margin: 0;
-    padding: 0;
-    font-size: var(--font-size-note);
-    line-height: 24px;
-    text-align: right;
-    color: var(--gray-lightest);
-    z-index: 1;
-}
-
-section header * {
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-    margin: 0;
-}
-
 section footer {
         /* top: 30px; */
         right: 30px;
@@ -413,8 +390,7 @@ section {
         padding: 30px 60px 0 60px;
     }
 
-    /* header 要素が先に挿入されても、最初の h1 に適用する。 */
-    >h1:first-of-type:not(.no-header > h1):not(.title > h1) {
+    >h1:first-child:not(.no-header > h1):not(.title > h1) {
         position: absolute;
         width: 100%;
         top: 0;
@@ -440,16 +416,11 @@ section {
 
     &::after {
         position: absolute;
-        top: 12px;
+        top: 0px;
         right: 30px;
-        bottom: auto;
-        left: auto;
-        height: 24px;
+        height: 80px;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        text-align: right;
-        line-height: 24px;
         padding: 0;
         font-size: var(--font-size-caption);
         color: var(--gray-lightest);
