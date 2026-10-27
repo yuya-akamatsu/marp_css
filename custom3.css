@@ -39,10 +39,10 @@
     --bg-default: #f8f8f8;
 
     /* 標準背景色（白） */
-    --bg-accent: #F3F3F3;
+    --bg-accent: #f8f8f8;
 
     /* アクセント背景色 */
-    --bg-accent-code: #e1e1e1;
+    --bg-accent-code: #f8f8f8;
 
     /* 注釈 */
     --border-color: #D9D9D9;
@@ -364,9 +364,32 @@ small {
     line-height: var(--line-height-normal);
 }
 
+/* 右上：ページ番号の直下にヘッダーを配置。 */
+section header {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    bottom: auto;
+    left: auto;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-note);
+    line-height: 24px;
+    text-align: right;
+    color: var(--gray-lightest);
+    z-index: 1;
+}
+
+section header * {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+}
+
 section footer {
         /* top: 30px; */
-        right: 70px;
+        right: 30px;
         text-align: right;
         color: var(--gray-lightest);
     }
@@ -390,7 +413,8 @@ section {
         padding: 30px 60px 0 60px;
     }
 
-    >h1:first-child:not(.no-header > h1) {
+    /* header 要素が先に挿入されても、最初の h1 に適用する。 */
+    >h1:first-of-type:not(.no-header > h1):not(.title > h1) {
         position: absolute;
         width: 100%;
         top: 0;
@@ -416,11 +440,16 @@ section {
 
     &::after {
         position: absolute;
-        top: 0px;
+        top: 12px;
         right: 30px;
-        height: 80px;
+        bottom: auto;
+        left: auto;
+        height: 24px;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        text-align: right;
+        line-height: 24px;
         padding: 0;
         font-size: var(--font-size-caption);
         color: var(--gray-lightest);
@@ -430,19 +459,30 @@ section {
 
     &.title {
         display: flex;
-        justify-content: space-between;
+        align-content: center;
+        justify-content: center;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        text-align: center;
         background-color: var(--bg-default);
-        padding: 100px;
+        padding: 70px 70px 40px;
 
 
         h1 {
+            font-size: 48px;
+            line-height: 1.4;
+            margin: 0 36px;
             text-align: center;
             position: static;
         }
 
-        ::after {
+        p {
+            font-size: 28px;
+            margin: 36px 36px 0;
+            text-align: left;
+        }
+
+        h1::after {
             display: none;
         }
 
