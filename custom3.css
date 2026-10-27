@@ -364,11 +364,10 @@ small {
     line-height: var(--line-height-normal);
 }
 
-section header {
-        top: 30px;
+section footer {
+        /* top: 30px; */
         right: 70px;
         text-align: right;
-        /* left: 70px;  */
     }
 
 section {
