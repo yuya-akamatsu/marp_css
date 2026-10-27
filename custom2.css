@@ -1,0 +1,175 @@
+ /* @theme custom2 */
+
+@import 'default';
+
+    section header {
+        top: 30px;
+        left: 70px; 
+    }
+    section {
+        color: #424345;
+        font-size: 24px;
+        align-content: start;
+        justify-content: flex-start;
+        padding: 70px 70px 40px; 
+    }
+    section h1 {
+        color: #424345;
+        margin: 0 0 20px;
+        text-align: left; }
+    /* タイトルページ専用。本文の section / h1 には適用しない。 */
+    section.title {
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
+    section.title h1 {
+        font-size: 48px;
+        line-height: 1.4;
+        margin: 0px 36px 0px;
+        text-align: center;
+    }
+    section.title p {
+        font-size: 28px;
+        margin: 36px 36px 0;
+        text-align: left
+    }
+
+    .columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .columns > div {
+            min-width: 0;
+        }
+
+    section.bottom-message > blockquote:last-of-type {
+        position: absolute;
+        left: 50%;
+        bottom: 42px;
+        transform: translateX(-50%);
+
+        box-sizing: border-box;
+        width: 75%;
+        margin: 0;
+        padding: 10px 24px;
+
+        border: 2px solid #24527a;
+        border-radius: 6px;
+        background: #f7fbff;
+        color: #183b56;
+
+        font-size: 30px;
+        font-weight: bold;
+        font-style: normal;
+        text-align: center;
+    }
+
+    section.bottom-message > blockquote:last-of-type p {
+        margin: 0;
+    }
+
+    /* 小さなテキスト・注釈 */
+    small {
+        font-size: var(--font-size-note);
+        color: var(--gray-light);
+        line-height: var(--line-height-normal);
+    }
+
+
+/* classmethod-theme.css の左右画像配置・見出し下線をベースに調整。
+ * 右配置: <!-- _class: content-image-right -->
+ * 左配置: <!-- _class: content-image-left -->
+ * 本文幅: content-30 / 40 / 60 / 70 / 80（既定は50%）
+ * 画像は本文と別の段落に記述する。
+ */
+section {
+    --bg-accent: #f3f3f3;
+    --content-width: 50%;
+    --heading-height: 80px;
+}
+
+/* タイトルページと no-header を除き、見出しをスライド上部に配置。 */
+section:not(.title):not(.no-header) {
+    padding-top: 100px;
+}
+
+section:not(.title):not(.no-header) > h1:first-of-type {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--heading-height);
+    display: flex;
+    align-items: center;
+    padding: 0 70px;
+    margin: 0;
+}
+
+section:not(.title):not(.no-header) > h1:first-of-type::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    z-index: 100;
+}
+
+section.content-image > p:has(img) {
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+section.content-30 { --content-width: 30%; }
+section.content-40 { --content-width: 40%; }
+section.content-60 { --content-width: 60%; }
+section.content-70 { --content-width: 70%; }
+section.content-80 { --content-width: 80%; }
+
+section.content-image-right {
+    padding-right: calc(100% - var(--content-width));
+}
+
+section.content-image-left {
+    padding-left: calc(100% - var(--content-width));
+}
+
+section.content-image-right > p:has(img),
+section.content-image-left > p:has(img) {
+    box-sizing: border-box;
+    position: absolute;
+    top: var(--heading-height);
+    width: calc(100% - var(--content-width));
+    height: calc(100% - var(--heading-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--bg-accent);
+}
+
+section.content-image-right > p:has(img) { right: 0; }
+section.content-image-left > p:has(img) { left: 0; }
+
+section.content-image-right > p:has(img)::after,
+section.content-image-left > p:has(img)::after {
+    display: none;
+}
+
+/* 大きい画像も画像領域内に収める。 */
+section.content-image-right > p:has(img) img,
+section.content-image-left > p:has(img) img {
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
